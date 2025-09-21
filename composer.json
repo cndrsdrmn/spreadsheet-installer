@@ -1,0 +1,52 @@
+{
+    "name": "cndrsdrmn/php-scaffold",
+    "description": "A boilerplate for modern PHP libraries.",
+    "keywords": [
+        "php",
+        "boilerplate",
+        "package"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Candra Sudirman",
+            "email": "dev.cndrsdrmn@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.0",
+        "phpunit/phpunit": "^10.5",
+        "phpstan/phpstan": "^2.1",
+        "rector/rector": "^2.1",
+        "symfony/var-dumper": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cndrsdrmn\\PhpScaffold\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "scripts": {
+        "lint": "pint",
+        "refactor": "rector",
+        "test:lint": "pint --test",
+        "test:refactor": "rector --dry-run",
+        "test:types": "phpstan",
+        "test:unit": "phpunit",
+        "test": [
+            "@test:lint",
+            "@test:unit",
+            "@test:types",
+            "@test:refactor"
+        ]
+    }
+}
