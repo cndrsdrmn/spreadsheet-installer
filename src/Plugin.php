@@ -18,6 +18,11 @@ use Composer\Script\ScriptEvents;
 final class Plugin implements EventSubscriberInterface, PluginInterface
 {
     /**
+     * The plugin version.
+     */
+    public const VERSION = '0.1.0';
+
+    /**
      * The spreadsheet binary.
      */
     private SpreadsheetBinary $binary;
