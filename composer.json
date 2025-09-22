@@ -1,6 +1,7 @@
 {
-    "name": "cndrsdrmn/php-scaffold",
-    "description": "A boilerplate for modern PHP libraries.",
+    "name": "cndrsdrmn/spreadsheet-installer",
+    "description": "Composer plugin to install go-spreadsheet binary",
+    "type": "composer-plugin",
     "keywords": [
         "php",
         "boilerplate",
@@ -14,9 +15,15 @@
         }
     ],
     "require": {
-        "php": "^8.2"
+        "php": "^8.2",
+        "ext-zip": "*",
+        "composer-plugin-api": "^2.0",
+        "symfony/filesystem": "^7.3",
+        "symfony/http-client": "^7.3",
+        "symfony/process": "^7.3"
     },
     "require-dev": {
+        "composer/composer": "^2.0",
         "laravel/pint": "^1.0",
         "phpunit/phpunit": "^10.5",
         "phpstan/phpstan": "^2.1",
@@ -25,7 +32,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Cndrsdrmn\\PhpScaffold\\": "src/"
+            "Cndrsdrmn\\SpreadsheetInstaller\\": "src/"
         }
     },
     "autoload-dev": {
@@ -33,7 +40,7 @@
             "Tests\\": "tests/"
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
         "lint": "pint",
@@ -48,5 +55,12 @@
             "@test:types",
             "@test:refactor"
         ]
+    },
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist"
+    },
+    "extra": {
+        "class": "Cndrsdrmn\\SpreadsheetInstaller\\Plugin"
     }
 }
